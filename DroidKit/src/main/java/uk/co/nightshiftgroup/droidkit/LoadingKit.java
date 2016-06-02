@@ -3,6 +3,7 @@ package uk.co.nightshiftgroup.droidkit;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 
 /**
@@ -10,7 +11,10 @@ import android.os.Handler;
  */
 public class LoadingKit {
 
-    public static boolean showLoadingScreen;
+    static boolean loadingBar;
+    static int loadingTime;
+    static Drawable background;
+    static Drawable logo;
 
     public void completeSplash(long splashTime, final Context context, final Class destination) {
 
@@ -24,7 +28,23 @@ public class LoadingKit {
         }, splashTime);
     }
 
-    public static void setLoadingBar() {
+    public LoadingKit setLoadingBar(Boolean result) {
+        loadingBar = result;
+        return this;
+    }
 
+    public LoadingKit setLoadingTime(int result) {
+        loadingTime = result;
+        return this;
+    }
+
+    public LoadingKit addBackground(Drawable result) {
+        background = result;
+        return this;
+    }
+
+    public LoadingKit addLogo(Drawable result) {
+        logo = result;
+        return this;
     }
 }
